@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@dsh-plugin/dsh-loader':
         specifier: 2.0.0-dev.45160670240
-        version: 2.0.0-dev.45160670240(@types/react@18.3.31)(react-dom@19.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.0.0-dev.45160670240(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/node':
         specifier: ^24.0.0
         version: 24.19.2
@@ -20,6 +20,9 @@ importers:
       react:
         specifier: ^18.3.1
         version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
       sass:
         specifier: ^1.89.0
         version: 1.108.2
@@ -888,10 +891,10 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
 
-  react-dom@19.3.1:
-    resolution: {integrity: sha512-Y0bARz53lhEC1NMCASs0/j+faB/zqt3R8hpvg1e8+61ZVJ4UL0UdC4cBbXfZMcIuhrfgeILTLe+ZeBCavQPtKQ==}
+  react-dom@18.3.1:
+    resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
     peerDependencies:
-      react: ^19.3.1
+      react: ^18.3.1
 
   react-focus-lock@2.13.7:
     resolution: {integrity: sha512-20lpZHEQrXPb+pp1tzd4ULL6DyO5D2KnR0G69tTDdydrmNhU7pdFmbQUYVyHUgp+xN29IuFR0PVuhOmvaZL9Og==}
@@ -969,8 +972,8 @@ packages:
     engines: {node: '>=20.19.0'}
     hasBin: true
 
-  scheduler@0.28.0:
-    resolution: {integrity: sha512-juorfCmIkIw8tT+p5BXSm6PJjQF/ycEYmKyzURCIt/RaZIhL+PulbQ9Yu2z1HdOJDdqDTlxA1+xKBmHXJsczAw==}
+  scheduler@0.23.2:
+    resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
 
   scroll-into-view-if-needed@2.2.31:
     resolution: {integrity: sha512-dGCXy99wZQivjmjIqihaBQNjryrz5rueJY7eHfTdyWEiR4ttYpsajb14rn9s5d4DY4EcY6+4+U/maARBXJedkA==}
@@ -1134,7 +1137,7 @@ snapshots:
     dependencies:
       color: 3.2.1
 
-  '@arco-design/web-react@2.66.18(@types/react@18.3.31)(react-dom@19.3.1(react@18.3.1))(react@18.3.1)':
+  '@arco-design/web-react@2.66.18(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@arco-design/color': 0.4.0
       '@babel/runtime': 7.29.15
@@ -1145,10 +1148,10 @@ snapshots:
       lodash: 4.18.1
       number-precision: 1.6.0
       react: 18.3.1
-      react-dom: 19.3.1(react@18.3.1)
+      react-dom: 18.3.1(react@18.3.1)
       react-focus-lock: 2.13.7(@types/react@18.3.31)(react@18.3.1)
       react-is: 18.3.1
-      react-transition-group: 4.4.5(react-dom@19.3.1(react@18.3.1))(react@18.3.1)
+      react-transition-group: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       resize-observer-polyfill: 1.5.1
       scroll-into-view-if-needed: 2.2.31
       shallowequal: 1.1.0
@@ -1157,15 +1160,15 @@ snapshots:
 
   '@babel/runtime@7.29.15': {}
 
-  '@dsh-plugin/dsh-loader@2.0.0-dev.45160670240(@types/react@18.3.31)(react-dom@19.3.1(react@18.3.1))(react@18.3.1)':
+  '@dsh-plugin/dsh-loader@2.0.0-dev.45160670240(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@arco-design/web-react': 2.66.18(@types/react@18.3.31)(react-dom@19.3.1(react@18.3.1))(react@18.3.1)
-      '@icon-park/react': 1.4.2(react-dom@19.3.1(react@18.3.1))(react@18.3.1)
+      '@arco-design/web-react': 2.66.18(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@icon-park/react': 1.4.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-markdown: 10.1.0(@types/react@18.3.31)(react@18.3.1)
       semver: 7.8.6
     optionalDependencies:
       react: 18.3.1
-      react-dom: 19.3.1(react@18.3.1)
+      react-dom: 18.3.1(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
@@ -1186,10 +1189,10 @@ snapshots:
       tslib: 2.9.1
     optional: true
 
-  '@icon-park/react@1.4.2(react-dom@19.3.1(react@18.3.1))(react@18.3.1)':
+  '@icon-park/react@1.4.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       react: 18.3.1
-      react-dom: 19.3.1(react@18.3.1)
+      react-dom: 18.3.1(react@18.3.1)
 
   '@napi-rs/wasm-runtime@1.2.6(@emnapi/core@2.0.0-beta.2)(@emnapi/runtime@2.0.0-beta.2)':
     dependencies:
@@ -1922,10 +1925,11 @@ snapshots:
       '@babel/runtime': 7.29.15
       react: 18.3.1
 
-  react-dom@19.3.1(react@18.3.1):
+  react-dom@18.3.1(react@18.3.1):
     dependencies:
+      loose-envify: 1.4.0
       react: 18.3.1
-      scheduler: 0.28.0
+      scheduler: 0.23.2
 
   react-focus-lock@2.13.7(@types/react@18.3.31)(react@18.3.1):
     dependencies:
@@ -1961,14 +1965,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  react-transition-group@4.4.5(react-dom@19.3.1(react@18.3.1))(react@18.3.1):
+  react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.29.15
       dom-helpers: 5.2.1
       loose-envify: 1.4.0
       prop-types: 15.8.1
       react: 18.3.1
-      react-dom: 19.3.1(react@18.3.1)
+      react-dom: 18.3.1(react@18.3.1)
 
   react@18.3.1:
     dependencies:
@@ -2041,7 +2045,9 @@ snapshots:
     optionalDependencies:
       '@parcel/watcher': 2.6.0
 
-  scheduler@0.28.0: {}
+  scheduler@0.23.2:
+    dependencies:
+      loose-envify: 1.4.0
 
   scroll-into-view-if-needed@2.2.31:
     dependencies:
