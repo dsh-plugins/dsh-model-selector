@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Model Selector",
+    "description": "Customize the model picker in the lower-right corner of the composer. Expand the configuration card on the plugin detail page to choose Normal, KimiCode, Codex, or Gugle (default). Ultra uses the model’s default reasoning effort and enables Agent Teams."
+  }
+}

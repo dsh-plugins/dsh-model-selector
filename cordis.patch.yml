@@ -1,0 +1,3 @@
+- insert:
+    - id: dsh-model-selector
+      name: '@dsh-plugin/dsh-model-selector'

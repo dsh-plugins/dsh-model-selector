@@ -1,0 +1,4 @@
+allowBuilds:
+  '@parcel/watcher': false
+minimumReleaseAgeExclude:
+  - '@dsh-plugin/dsh-loader@2.0.0-dev.45160670240'

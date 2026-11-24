@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "模型选择器",
+    "description": "替换输入框右下角的模型选择器。展开插件详情中的「模型选择器」配置卡片，可选择 Normal、KimiCode、Codex 或 Gugle，默认使用 Gugle。Ultra 使用当前模型的默认推理强度并开启智能体团队协作。"
+  }
+}
