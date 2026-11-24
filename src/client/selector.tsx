@@ -22,6 +22,19 @@ type Feedback = {
 const NO_TEAM: ComposerTeamSnapshot = { available: false, enabled: false, requiresDisableConfirmation: false };
 const NO_TEAM_STORE = { subscribe: () => () => {}, getSnapshot: () => NO_TEAM };
 
+const ultraStars: readonly [x: number, y: number, core: number, amplitude: number, period: number, phase: number][] = [
+  [16, 63, 0.75, 0.7, 4.9, 0.9],
+  [23, 42, 0.6, 1.05, 6.4, 4.1],
+  [31, 32, 0.55, 0.45, 5.3, 2.6],
+  [39, 72, 0.75, 0.6, 7.3, 3.5],
+  [46, 61, 0.8, 1.2, 5.7, 0.4],
+  [53, 29, 0.55, 0.85, 7.9, 5.6],
+  [62, 58, 0.75, 0.5, 4.7, 1.7],
+  [65, 35, 0.65, 0.95, 6.7, 5.1],
+  [77, 59, 0.55, 0.4, 5.9, 3.1],
+  [84, 43, 0.65, 1.1, 7.1, 6.5],
+];
+
 function sameModel(a: ComposerModelSelection | null, b: ComposerModelSelection): boolean {
   return a?.provider === b.provider && a.model === b.model;
 }
@@ -181,9 +194,17 @@ function Slider({ stops, active, reasoning, words, disabled, model, applyCurrent
         <div className="dms-rail" style={{ '--dms-progress': `${percent}%` } as CSSProperties}>
           <div className="dms-track" aria-hidden="true">
             <div className="dms-track-fill" />
-            <div className="dms-ticks">
-              {stops.map((stop) => <span key={stop.kind === 'effort' ? `effort:${stop.id}` : stop.kind} />)}
-            </div>
+            {choice?.kind === 'ultra' ? ultraStars.map(([x, y, core, amplitude, period, phase]) => (
+              <span className="dms-ultra-star" key={x} style={{
+                left: `${x}%`, top: `${y}%`,
+                '--dms-star-core': `${core}px`, '--dms-star-amplitude': `${amplitude}px`,
+                '--dms-star-period': `${period}s`, '--dms-star-phase': `-${phase}s`,
+              } as CSSProperties} />
+            )) : (
+              <div className="dms-ticks">
+                {stops.map((stop) => <span key={stop.kind === 'effort' ? `effort:${stop.id}` : stop.kind} />)}
+              </div>
+            )}
           </div>
           <input type="range" min={0} max={Math.max(1, stops.length - 1)} step={1} value={shown}
             disabled={disabled || stops.length < 2} aria-label={words.effort} aria-valuetext={valueText}
