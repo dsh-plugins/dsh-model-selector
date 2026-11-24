@@ -8,9 +8,19 @@
   box-shadow: 0 1px 3px color-mix(in srgb, CanvasText 25%, transparent);
 }
 
-@keyframes dms-ultra-sweep {
-  0% { transform: translateX(-110%) skewX(-18deg); }
-  76%, 100% { transform: translateX(220%) skewX(-18deg); }
+@keyframes dms-ultra-blue-drift {
+  from { transform: translateX(22%); opacity: 0.18; }
+  to { transform: translateX(-6%); opacity: 0.84; }
+}
+
+@keyframes dms-ultra-violet-drift {
+  from { transform: translateX(-5%); opacity: 0.65; }
+  to { transform: translateX(18%); opacity: 0.22; }
+}
+
+@keyframes dms-ultra-twinkle {
+  from { opacity: 0.42; }
+  to { opacity: 0.92; }
 }
 
 .dsh-model-selector {
@@ -488,20 +498,62 @@
       color: color-mix(in srgb, var(--dms-ultra) 74%, var(--dms-text));
     }
 
+    .dms-rail {
+      --dms-thumb-fill: white;
+    }
+
     .dms-track-fill {
       overflow: hidden;
-      background: linear-gradient(95deg, var(--dms-accent), var(--dms-ultra) 64%, color-mix(in srgb, var(--dms-ultra) 82%, var(--dms-surface)));
+      background: linear-gradient(95deg, color-mix(in srgb, #3049d9 78%, var(--dms-accent)), #6651ee 44%, var(--dms-ultra) 70%, #532abd);
 
-      @media (prefers-reduced-motion: no-preference) {
-        &::after {
-          position: absolute;
-          inset-block: 0;
-          left: 0;
-          width: 52%;
-          background: linear-gradient(90deg, transparent, rgb(230 239 255 / 50%) 52%, transparent);
-          animation: dms-ultra-sweep 2.8s linear infinite;
-          content: '';
-        }
+      &::before,
+      &::after {
+        position: absolute;
+        inset-block: -65%;
+        inline-size: 78%;
+        content: '';
+      }
+
+      &::before {
+        left: -23%;
+        background: radial-gradient(ellipse, rgb(191 213 255 / 78%), transparent 67%);
+        opacity: 0.45;
+      }
+
+      &::after {
+        left: 16%;
+        background: radial-gradient(ellipse, rgb(226 171 255 / 68%), transparent 68%);
+        opacity: 0.52;
+      }
+    }
+
+    .dms-track::after {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 10% 60%, rgb(233 240 255 / 46%), transparent 1.5px),
+        radial-gradient(circle at 23% 34%, rgb(219 231 255 / 40%), transparent 1.3px),
+        radial-gradient(circle at 35% 65%, rgb(233 240 255 / 28%), transparent 1.5px),
+        radial-gradient(circle at 46% 36%, rgb(244 219 255 / 55%), transparent 1.6px),
+        radial-gradient(circle at 52% 66%, rgb(245 231 255 / 46%), transparent 1.4px),
+        radial-gradient(circle at 63% 47%, rgb(244 219 255 / 34%), transparent 1.5px),
+        radial-gradient(circle at 72% 31%, rgb(244 219 255 / 39%), transparent 1.3px),
+        radial-gradient(circle at 82% 62%, rgb(221 205 255 / 35%), transparent 1.5px);
+      opacity: 0.68;
+      content: '';
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .dms-track-fill::before {
+        animation: dms-ultra-blue-drift 4.8s ease-in-out infinite alternate;
+      }
+
+      .dms-track-fill::after {
+        animation: dms-ultra-violet-drift 5.7s -1.4s ease-in-out infinite alternate;
+      }
+
+      .dms-track::after {
+        animation: dms-ultra-twinkle 2.9s -0.7s ease-in-out infinite alternate;
       }
     }
   }
