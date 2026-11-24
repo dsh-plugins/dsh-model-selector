@@ -10,7 +10,7 @@ English | [简体中文](README.zh_CN.md)
 
 </div>
 
-[![Build checks](https://github.com/dsh-plugins/dsh-model-selector/actions/workflows/check.yml/badge.svg)](https://github.com/dsh-plugins/dsh-model-selector/actions/workflows/check.yml)
+[![CI and npm Publish](https://github.com/dsh-plugins/dsh-model-selector/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/dsh-plugins/dsh-model-selector/actions/workflows/npm-publish.yml)
 
 ## Features
 
@@ -31,7 +31,20 @@ Open **Plugins → Model Selector**, expand the **模型选择器** configuratio
 
 ## Installation
 
-Requires DSH `0.2.2-rc.3` or later and [dsh-loader](https://github.com/dsh-plugins/dsh-loader). Browser-tested on DSH `0.2.2-rc.3` and `0.2.3-alpha.2`. To build the bundle from source, use Node.js `24.9.0` or later and pnpm `11.17.0`. Replace `web` if you use another DSH profile.
+Requires DSH `0.2.2-rc.3` or later and [dsh-loader](https://github.com/dsh-plugins/dsh-loader). Browser-tested on DSH `0.2.2-rc.3` and `0.2.3-alpha.2`. Replace `web` if you use another DSH profile.
+
+### Development channel on npm
+
+The `next` tag tracks builds from `main`. Version tags publish to `latest`.
+
+```powershell
+dsh plugin --profile web add '@dsh-plugin/dsh-loader@2.0.0-dev.45160670240'
+dsh plugin --profile web add '@dsh-plugin/dsh-model-selector@next'
+```
+
+### Build from source
+
+Use Node.js `24.9.0` or later and pnpm `11.17.0`.
 
 ```powershell
 git clone https://github.com/dsh-plugins/dsh-model-selector.git

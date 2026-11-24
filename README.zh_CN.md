@@ -10,7 +10,7 @@
 
 </div>
 
-[![构建检查](https://github.com/dsh-plugins/dsh-model-selector/actions/workflows/check.yml/badge.svg)](https://github.com/dsh-plugins/dsh-model-selector/actions/workflows/check.yml)
+[![构建与 npm 发布](https://github.com/dsh-plugins/dsh-model-selector/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/dsh-plugins/dsh-model-selector/actions/workflows/npm-publish.yml)
 
 ## 功能
 
@@ -31,7 +31,20 @@
 
 ## 安装
 
-要求 DSH `0.2.2-rc.3` 或更新版本，以及 [dsh-loader](https://github.com/dsh-plugins/dsh-loader)。已在 DSH `0.2.2-rc.3` 和 `0.2.3-alpha.2` 的浏览器界面验证。从源码打包需使用 Node.js `24.9.0` 或更新版本与 pnpm `11.17.0`。使用其他 DSH 配置档案时，替换命令中的 `web`。
+要求 DSH `0.2.2-rc.3` 或更新版本，以及 [dsh-loader](https://github.com/dsh-plugins/dsh-loader)。已在 DSH `0.2.2-rc.3` 和 `0.2.3-alpha.2` 的浏览器界面验证。使用其他 DSH 配置档案时，替换命令中的 `web`。
+
+### 从 npm 安装开发版
+
+`next` 指向 `main` 的开发构建。版本标签发布到 `latest`。
+
+```powershell
+dsh plugin --profile web add '@dsh-plugin/dsh-loader@2.0.0-dev.45160670240'
+dsh plugin --profile web add '@dsh-plugin/dsh-model-selector@next'
+```
+
+### 从源码打包
+
+使用 Node.js `24.9.0` 或更新版本与 pnpm `11.17.0`。
 
 ```powershell
 git clone https://github.com/dsh-plugins/dsh-model-selector.git
