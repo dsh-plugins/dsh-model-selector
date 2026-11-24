@@ -8,6 +8,11 @@
   box-shadow: 0 1px 3px color-mix(in srgb, CanvasText 25%, transparent);
 }
 
+@keyframes dms-ultra-sweep {
+  0% { transform: translateX(-110%) skewX(-18deg); }
+  76%, 100% { transform: translateX(220%) skewX(-18deg); }
+}
+
 .dsh-model-selector {
   --dms-surface: var(--dsw-alias-bg-layer-2, Canvas);
   --dms-platform: var(--dsw-alias-bg-module-platform, var(--dms-surface));
@@ -478,20 +483,26 @@
     }
   }
 
-  .dms-ultra-hint {
-    margin: 0.0625rem 0.25rem 0.25rem;
-    color: var(--dms-muted);
-    font-size: 0.6875rem;
-    text-align: end;
-  }
-
   .dms-slider[data-ultra] {
     .dms-slider-value {
       color: color-mix(in srgb, var(--dms-ultra) 74%, var(--dms-text));
     }
 
     .dms-track-fill {
+      overflow: hidden;
       background: linear-gradient(95deg, var(--dms-accent), var(--dms-ultra) 64%, color-mix(in srgb, var(--dms-ultra) 82%, var(--dms-surface)));
+
+      @media (prefers-reduced-motion: no-preference) {
+        &::after {
+          position: absolute;
+          inset-block: 0;
+          left: 0;
+          width: 52%;
+          background: linear-gradient(90deg, transparent, rgb(230 239 255 / 50%) 52%, transparent);
+          animation: dms-ultra-sweep 2.8s linear infinite;
+          content: '';
+        }
+      }
     }
   }
 

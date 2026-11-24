@@ -144,8 +144,7 @@ function Slider({ stops, active, reasoning, words, disabled, model, applyCurrent
   const valueText = choice?.kind === 'ultra' ? words.ultraDescription : label;
   const percent = stops.length > 1 ? shown / (stops.length - 1) * 100 : 0;
   const stopKey = JSON.stringify(stops);
-  const hintId = useId();
-  const hasUltra = stops.some(stop => stop.kind === 'ultra');
+  const ultraHint = choice?.kind !== 'ultra' && stops.some(stop => stop.kind === 'ultra') ? words.ultraDescription : undefined;
   const resetLabel = teamEnabled ? words.resetAndDisable : words.reset;
 
   useLayoutEffect(() => {
@@ -179,7 +178,6 @@ function Slider({ stops, active, reasoning, words, disabled, model, applyCurrent
       )}
       {children ?? <div className="dms-slider-model"><span>{model}</span></div>}
       {stops.length > 0 && (
-        <>
         <div className="dms-rail" style={{ '--dms-progress': `${percent}%` } as CSSProperties}>
           <div className="dms-track" aria-hidden="true">
             <div className="dms-track-fill" />
@@ -189,7 +187,7 @@ function Slider({ stops, active, reasoning, words, disabled, model, applyCurrent
           </div>
           <input type="range" min={0} max={Math.max(1, stops.length - 1)} step={1} value={shown}
             disabled={disabled || stops.length < 2} aria-label={words.effort} aria-valuetext={valueText}
-            aria-describedby={hasUltra ? hintId : undefined} data-dms-focus="slider" data-dms-initial
+            aria-description={ultraHint} data-dms-focus="slider" data-dms-initial
             onChange={(event) => {
               const value = event.currentTarget.valueAsNumber;
               if (gesture.current) {
@@ -244,8 +242,6 @@ function Slider({ stops, active, reasoning, words, disabled, model, applyCurrent
               }
             }} />
         </div>
-        {hasUltra && <div id={hintId} className="dms-ultra-hint">{words.ultraDescription}</div>}
-        </>
       )}
     </div>
   );
