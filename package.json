@@ -30,7 +30,7 @@
     "./locale/*.json": "./locale/*.json",
     "./icon": "./icon.svg"
   },
-  "files": ["lib", "cordis.patch.yml", "locale", "icon.svg", "README.zh_CN.md", "docs/gugle-layout.png"],
+  "files": ["lib", "cordis.patch.yml", "locale", "icon.svg", "README.zh_CN.md", "docs/gugle-layout.png", "dsh_pack/"],
   "dsh": {
     "bundle": { "patch": "./cordis.patch.yml" },
     "client": {

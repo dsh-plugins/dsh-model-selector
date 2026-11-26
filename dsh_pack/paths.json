@@ -1,0 +1,11 @@
+{
+  "name": {
+    "en": "Model selector appearance",
+    "zh-CN": "模型选择器样式"
+  },
+  "desc": {
+    "en": "Saves the selected model picker layout for the profile.",
+    "zh-CN": "保存当前配置档选用的模型选择器样式。"
+  },
+  "paths": ["profiles/<profile>/config/dsh-model-selector/config.json"]
+}
