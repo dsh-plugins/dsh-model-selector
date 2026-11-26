@@ -274,14 +274,16 @@ function placePanel(panel: HTMLDivElement, trigger: HTMLButtonElement) {
   const viewportHeight = view?.height ?? window.innerHeight;
   const viewLeft = view?.offsetLeft ?? 0;
   const viewTop = view?.offsetTop ?? 0;
+  const viewBottom = viewTop + viewportHeight;
   const inset = Math.min(120, Math.max(8, (viewportHeight - 240) / 2));
   const topBoundary = viewTop + inset;
-  const bottomBoundary = viewTop + viewportHeight - inset;
+  const bottomBoundary = viewBottom - inset;
+  const maxHeight = Math.max(0, bottomBoundary - topBoundary);
   panel.style.maxWidth = `${Math.max(0, viewportWidth - 16)}px`;
   const width = panel.getBoundingClientRect().width;
   const anchor = trigger.getBoundingClientRect();
   const left = Math.max(viewLeft + 8, Math.min(anchor.right - width, viewLeft + viewportWidth - width - 8));
-  const aboveEnd = Math.min(anchor.top - 6, bottomBoundary);
+  const aboveEnd = Math.min(anchor.top - 6, viewBottom - 8);
   const belowStart = Math.max(anchor.bottom + 6, topBoundary);
   const above = aboveEnd - topBoundary;
   const below = bottomBoundary - belowStart;
@@ -289,7 +291,7 @@ function placePanel(panel: HTMLDivElement, trigger: HTMLButtonElement) {
   if (above >= Math.max(144, below)) {
     panel.style.bottom = `${window.innerHeight - aboveEnd}px`;
     panel.style.top = 'auto';
-    panel.style.maxHeight = `${above}px`;
+    panel.style.maxHeight = `${Math.min(above, maxHeight)}px`;
   } else if (below >= 144) {
     panel.style.top = `${belowStart}px`;
     panel.style.bottom = 'auto';
@@ -297,7 +299,7 @@ function placePanel(panel: HTMLDivElement, trigger: HTMLButtonElement) {
   } else {
     panel.style.bottom = `${window.innerHeight - bottomBoundary}px`;
     panel.style.top = 'auto';
-    panel.style.maxHeight = `${Math.max(0, bottomBoundary - topBoundary)}px`;
+    panel.style.maxHeight = `${maxHeight}px`;
   }
 }
 
